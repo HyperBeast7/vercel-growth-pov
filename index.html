@@ -18,7 +18,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #020617;
-      color: #e5e7eb;
+      color: #f9fafb; /* brighter text */
     }
 
     a {
@@ -58,12 +58,12 @@
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #9ca3af;
+      color: #e5e7eb;
     }
 
     .brand-subtitle {
       font-size: 13px;
-      color: #6b7280;
+      color: #d1d5db;
     }
 
     .chip {
@@ -72,7 +72,7 @@
       border-radius: 999px;
       border: 1px solid #38bdf8;
       color: #38bdf8;
-      background: rgba(56, 189, 248, 0.1);
+      background: rgba(56, 189, 248, 0.12);
       white-space: nowrap;
     }
 
@@ -103,15 +103,18 @@
       font-size: 26px;
       line-height: 1.2;
       letter-spacing: -0.03em;
+      color: #f9fafb;
     }
 
     .hero-highlight {
-      color: #38bdf8;
+      /* no blue text, just a subtle underline */
+      border-bottom: 1px solid #4b5563;
+      padding-bottom: 1px;
     }
 
     .hero-subtitle {
       font-size: 14px;
-      color: #9ca3af;
+      color: #e5e7eb;
       max-width: 620px;
       margin-bottom: 10px;
     }
@@ -127,13 +130,14 @@
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid #374151;
-      color: #9ca3af;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      background: #020617;
     }
 
     .experience-box {
       border-radius: 12px;
-      border: 1px solid #1f2937;
+      border: 1px solid #4b5563;
       background: #030712;
       padding: 12px 12px 10px 12px;
       margin-bottom: 20px;
@@ -142,20 +146,13 @@
     .experience-title {
       font-size: 14px;
       margin: 0 0 6px 0;
+      color: #f9fafb;
     }
 
     .experience-text {
       font-size: 13px;
-      color: #9ca3af;
+      color: #e5e7eb;
       margin: 0 0 6px 0;
-    }
-
-    .experience-note {
-      font-size: 11px;
-      color: #6b7280;
-      border-top: 1px dashed #374151;
-      padding-top: 6px;
-      margin-top: 4px;
     }
 
     section {
@@ -178,29 +175,30 @@
       font-size: 16px;
       margin: 0;
       letter-spacing: -0.02em;
+      color: #f9fafb;
     }
 
     .section-tag {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #6b7280;
+      color: #d1d5db;
       border-radius: 999px;
-      border: 1px solid #374151;
+      border: 1px solid #4b5563;
       padding: 3px 7px;
       white-space: nowrap;
     }
 
     .section-body {
       font-size: 14px;
-      color: #9ca3af;
+      color: #e5e7eb;
       line-height: 1.6;
     }
 
     .section-body h3 {
       font-size: 13px;
       margin: 10px 0 4px;
-      color: #e5e7eb;
+      color: #f9fafb;
     }
 
     .section-body p {
@@ -227,7 +225,8 @@
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid #374151;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
     }
 
     .cols-2 {
@@ -259,14 +258,14 @@
       border: 1px dashed #4b5563;
       padding: 10px;
       font-size: 13px;
-      color: #9ca3af;
+      color: #e5e7eb;
     }
 
     .contact-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #6b7280;
+      color: #d1d5db;
       margin-bottom: 2px;
     }
 
@@ -275,7 +274,7 @@
       margin: 0 auto 20px auto;
       padding: 0 16px;
       font-size: 11px;
-      color: #6b7280;
+      color: #d1d5db;
       display: flex;
       justify-content: space-between;
       gap: 8px;
@@ -330,10 +329,6 @@
           <p class="experience-text">
             Led 8–9 figure media budgets with deep work in SEO, paid media, CRO, experimentation,
             and MMM-lite / LTV:CAC modeling.
-          </p>
-          <p class="experience-note">
-            I answered “no” to the “6+ years at a PLG-led SaaS company” question, but the mechanics of
-            self-serve growth are what I’ve owned for most of my career.
           </p>
         </div>
 
