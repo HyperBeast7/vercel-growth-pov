@@ -2,10 +2,336 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jim – Vercel Growth Test</title>
+  <title>How I'd Grow Vercel's Self-Serve Business in 90 Days</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A practical 90-day growth plan for Vercel's self-serve product-led growth engine."
+  />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      -webkit-font-smoothing: antialiased;
+    }
+    * { box-sizing: border-box; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #020617;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      white-space: nowrap;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 28px auto 16px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      margin: 0 0 8px 0;
+      font-size: 26px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-highlight {
+      color: #38bdf8;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      max-width: 520px;
+    }
+
+    .hero-pills {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      color: #9ca3af;
+    }
+
+    .hero-card {
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      padding: 14px;
+      background: #030712;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-block {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-note {
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px dashed #374151;
+      padding-top: 6px;
+      margin-top: 4px;
+    }
+
+    .sections {
+      max-width: 900px;
+      margin: 0 auto 32px auto;
+      padding: 0 16px 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    section {
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      padding: 14px 14px 12px 14px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .section-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      padding: 3px 7px;
+      white-space: nowrap;
+    }
+
+    .section-body {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+
+    .section-body h3 {
+      font-size: 13px;
+      margin: 10px 0 4px;
+      color: #e5e7eb;
+    }
+
+    .section-body p {
+      margin: 4px 0 8px;
+    }
+
+    .section-body ul {
+      margin: 4px 0 8px 18px;
+      padding: 0;
+    }
+
+    .section-body li {
+      margin-bottom: 3px;
+    }
+
+    .cols-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .kpi-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .kpi-pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .bio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-box {
+      border-radius: 10px;
+      border: 1px dashed #4b5563;
+      padding: 10px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 2px;
+    }
+
+    .contact-link {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      padding: 0 16px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    @media (max-width: 640px) {
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>It works 🎯</h1>
-  <p>If you can see this as a big heading, HTML is working correctly.</p>
-</body>
-</html>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div>
+          <div class="brand-title">Head of Growth Marketing</div>
+          <div class="brand-subtitle">90-Day Self-Serve Growth POV for Vercel</div>
+        </div>
+        <div class="chip">Product-Led • Self-Serve • GEO</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Growth POV</div>
+          <h1 class="hero-title">
+            How I’d Grow <span class="hero-highlight">Vercel’s Self-Serve Business</span> in the First 90 Days
+          </h1>
+          <p class="hero-subtitle">
+            A performance-led, experiment-heavy approach to turning traffic into signups, activation,
+            and revenue across web, SEO, paid media, and Generative Engine Optimization (GEO).
+          </p>
+          <div class="hero-pills">
+            <span class="pill">Self-Serve &amp; PLG Funnels</span>
+            <span class="pill">SEO &amp; GEO</span>
+            <span class="pill">Paid Media &amp; CAC / Payback</span>
+            <span class="pill">Experimentation &amp; Analytics</span>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="hero-card-title">Relevant Experience</div>
+          <div class="hero-card-block">
+            Self-serve / subscription-style growth at Audible (trial → paid), direct digital booking
+            at Hilton &amp; Choice, and multi-market performance programs in home services.
+          </div>
+          <div class="hero-card-block">
+            Led 8–9 figure media budgets with deep work in SEO, paid media, CRO, experimentation, and
