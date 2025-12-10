@@ -9,15 +9,26 @@
     content="A practical 90-day growth plan for Vercel's self-serve product-led growth engine."
   />
   <style>
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #020617;
       color: #e5e7eb;
-      -webkit-font-smoothing: antialiased;
     }
-    * { box-sizing: border-box; }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     .page {
       min-height: 100vh;
@@ -61,7 +72,7 @@
       border-radius: 999px;
       border: 1px solid #38bdf8;
       color: #38bdf8;
-      background: rgba(56, 189, 248, 0.08);
+      background: rgba(56, 189, 248, 0.1);
       white-space: nowrap;
     }
 
@@ -69,19 +80,14 @@
       flex: 1;
     }
 
-    .hero {
+    .container {
       max-width: 900px;
-      margin: 28px auto 16px auto;
-      padding: 0 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-      gap: 24px;
+      margin: 0 auto 32px auto;
+      padding: 20px 16px 24px 16px;
     }
 
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .hero {
+      margin-bottom: 18px;
     }
 
     .eyebrow {
@@ -89,11 +95,11 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #38bdf8;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .hero-title {
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
       font-size: 26px;
       line-height: 1.2;
       letter-spacing: -0.03em;
@@ -106,17 +112,18 @@
     .hero-subtitle {
       font-size: 14px;
       color: #9ca3af;
-      max-width: 520px;
+      max-width: 620px;
+      margin-bottom: 10px;
     }
 
-    .hero-pills {
-      margin-top: 8px;
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
+      margin-bottom: 16px;
     }
 
-    .pill {
+    .tag-pill {
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
@@ -124,25 +131,26 @@
       color: #9ca3af;
     }
 
-    .hero-card {
-      border-radius: 14px;
+    .experience-box {
+      border-radius: 12px;
       border: 1px solid #1f2937;
-      padding: 14px;
       background: #030712;
+      padding: 12px 12px 10px 12px;
+      margin-bottom: 20px;
     }
 
-    .hero-card-title {
+    .experience-title {
       font-size: 14px;
-      margin-bottom: 6px;
+      margin: 0 0 6px 0;
     }
 
-    .hero-card-block {
+    .experience-text {
       font-size: 13px;
       color: #9ca3af;
-      margin-bottom: 8px;
+      margin: 0 0 6px 0;
     }
 
-    .hero-card-note {
+    .experience-note {
       font-size: 11px;
       color: #6b7280;
       border-top: 1px dashed #374151;
@@ -150,20 +158,12 @@
       margin-top: 4px;
     }
 
-    .sections {
-      max-width: 900px;
-      margin: 0 auto 32px auto;
-      padding: 0 16px 24px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
     section {
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid #1f2937;
       background: #020617;
-      padding: 14px 14px 12px 14px;
+      padding: 12px 12px 10px 12px;
+      margin-bottom: 14px;
     }
 
     .section-header {
@@ -216,18 +216,6 @@
       margin-bottom: 3px;
     }
 
-    .cols-2 {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
-      gap: 14px;
-    }
-
-    @media (max-width: 800px) {
-      .cols-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
     .kpi-row {
       margin-top: 8px;
       display: flex;
@@ -242,15 +230,27 @@
       border: 1px solid #374151;
     }
 
-    .bio-grid {
+    .cols-2 {
       display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
-      gap: 14px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
     }
 
-    @media (max-width: 800px) {
+    @media (min-width: 780px) {
+      .cols-2 {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+      }
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 780px) {
       .bio-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
       }
     }
 
@@ -268,15 +268,6 @@
       letter-spacing: 0.16em;
       color: #6b7280;
       margin-bottom: 2px;
-    }
-
-    .contact-link {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
     }
 
     footer {
@@ -310,8 +301,9 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div>
+      <div class="container">
+        <!-- HERO -->
+        <div class="hero">
           <div class="eyebrow">Growth POV</div>
           <h1 class="hero-title">
             How I’d Grow <span class="hero-highlight">Vercel’s Self-Serve Business</span> in the First 90 Days
@@ -320,18 +312,308 @@
             A performance-led, experiment-heavy approach to turning traffic into signups, activation,
             and revenue across web, SEO, paid media, and Generative Engine Optimization (GEO).
           </p>
-          <div class="hero-pills">
-            <span class="pill">Self-Serve &amp; PLG Funnels</span>
-            <span class="pill">SEO &amp; GEO</span>
-            <span class="pill">Paid Media &amp; CAC / Payback</span>
-            <span class="pill">Experimentation &amp; Analytics</span>
+          <div class="tags">
+            <span class="tag-pill">Self-Serve &amp; PLG Funnels</span>
+            <span class="tag-pill">SEO &amp; GEO</span>
+            <span class="tag-pill">Paid Media &amp; CAC / Payback</span>
+            <span class="tag-pill">Experimentation &amp; Analytics</span>
           </div>
         </div>
-        <aside class="hero-card">
-          <div class="hero-card-title">Relevant Experience</div>
-          <div class="hero-card-block">
+
+        <!-- RELEVANT EXPERIENCE BOX -->
+        <div class="experience-box">
+          <div class="experience-title">Relevant Experience</div>
+          <p class="experience-text">
             Self-serve / subscription-style growth at Audible (trial → paid), direct digital booking
             at Hilton &amp; Choice, and multi-market performance programs in home services.
+          </p>
+          <p class="experience-text">
+            Led 8–9 figure media budgets with deep work in SEO, paid media, CRO, experimentation,
+            and MMM-lite / LTV:CAC modeling.
+          </p>
+          <p class="experience-note">
+            I answered “no” to the “6+ years at a PLG-led SaaS company” question, but the mechanics of
+            self-serve growth are what I’ve owned for most of my career.
+          </p>
+        </div>
+
+        <!-- SECTION: How I Think -->
+        <section id="model">
+          <div class="section-header">
+            <h2 class="section-title">How I Think About Self-Serve Growth at Vercel</h2>
+            <div class="section-tag">Mental Model</div>
           </div>
-          <div class="hero-card-block">
-            Led 8–9 figure media budgets with deep work in SEO, paid media, CRO, experimentation, and
+          <div class="section-body">
+            <p>
+              Vercel’s self-serve engine sits at the intersection of discovery, product, and pricing.
+              Developers find Vercel via frameworks, content, SEO, and AI assistants; they onboard
+              through a product-led experience; and they expand as their projects and teams grow.
+            </p>
+            <p>As Head of Growth Marketing, I’d focus on:</p>
+            <ul>
+              <li>
+                <strong>Owning digital surfaces as growth assets</strong> — Vercel.com, key landing
+                pages, docs entry points, SEO, GEO, and paid channels working as one system.
+              </li>
+              <li>
+                <strong>Aligning tightly with Growth Product</strong> around key activation milestones:
+                first deploy, first project, first team invite, first production app.
+              </li>
+              <li>
+                <strong>Building a disciplined experiment loop</strong> where every test has a clear
+                hypothesis, success metric, and rollout plan, and wins scale quickly.
+              </li>
+            </ul>
+            <div class="kpi-row">
+              <span class="kpi-pill">North Star: Activated workspaces / projects</span>
+              <span class="kpi-pill">Guardrails: CAC, payback, LTV / CAC</span>
+              <span class="kpi-pill">Inputs: Traffic × Activation × ARPU</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: 30/60/90 -->
+        <section id="plan">
+          <div class="section-header">
+            <h2 class="section-title">30 / 60 / 90-Day Plan</h2>
+            <div class="section-tag">Execution</div>
+          </div>
+          <div class="section-body">
+            <div class="cols-2">
+              <div>
+                <h3>Days 0–30: Understand, Instrument, Prioritize</h3>
+                <p><strong>Goal:</strong> Get fluent in the funnel and choose the first
+                  3–5 high-leverage experiments.</p>
+                <ul>
+                  <li>
+                    Map the self-serve funnel end-to-end: traffic sources → signup → first project /
+                    deploy → activation → upgrade → expansion.
+                  </li>
+                  <li>
+                    Audit performance for SEO, GEO, paid, and on-site conversion (pricing, docs entry
+                    pages, templates).
+                  </li>
+                  <li>
+                    Review experiments and analytics with Growth Product and Data; align on a clear
+                    north star for self-serve.
+                  </li>
+                  <li>
+                    Segment users into practical cohorts (solo devs, agencies, startups, enterprise
+                    evaluators).
+                  </li>
+                  <li>
+                    Stand up a simple, shared dashboard for self-serve funnel health and experiment
+                    impact.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Days 31–60: Ship High-Impact Experiments</h3>
+                <p><strong>Goal:</strong> Launch and learn from a focused set of tests across
+                  acquisition, activation, and monetization.</p>
+                <ul>
+                  <li>
+                    Acquisition: sharpen high-intent SEO and GEO, refine paid search/social around
+                    ICPs, and test new landers and offers.
+                  </li>
+                  <li>
+                    Activation: experiment with onboarding flows, starter templates, and nudges to
+                    shorten time-to-first-deploy.
+                  </li>
+                  <li>
+                    Monetization: test messaging and CTAs on pricing pages and in-app upgrade prompts
+                    aligned to usage thresholds.
+                  </li>
+                  <li>
+                    Create a lightweight experiment doc format and a weekly growth standup to keep the
+                    loop tight.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Days 61–90: Scale What Works &amp; Systematize Growth</h3>
+            <p><strong>Goal:</strong> Turn early wins into durable, repeatable programs.</p>
+            <ul>
+              <li>
+                Scale the best-performing campaigns and experiences while maintaining CAC / payback
+                guardrails.
+              </li>
+              <li>
+                Build a rolling experimentation roadmap with Growth Product and Demand Gen so the
+                engine keeps running after month 3.
+              </li>
+              <li>
+                Tighten reporting for leadership: a clear narrative around traffic, activation,
+                conversion, and revenue from self-serve.
+              </li>
+              <li>
+                Document learnings so future teammates build on a strong foundation rather than
+                repeating tests.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION: Experiments -->
+        <section id="experiments">
+          <div class="section-header">
+            <h2 class="section-title">Example Experiments I’d Run Early</h2>
+            <div class="section-tag">Test &amp; Learn</div>
+          </div>
+          <div class="section-body cols-2">
+            <div>
+              <h3>1. GEO &amp; AI Discovery</h3>
+              <ul>
+                <li>
+                  Build structured “how to” content tailored for AI assistants (ChatGPT, Perplexity,
+                  Gemini) around deploying apps, migrating from other hosts, and performance use
+                  cases.
+                </li>
+                <li>
+                  Measure impact on qualified traffic, signups, and activated workspaces—not just
+                  impressions.
+                </li>
+              </ul>
+
+              <h3>2. Framework-Specific Landers</h3>
+              <ul>
+                <li>
+                  Refine landing pages for key frameworks (Next.js, React, Svelte, etc.) with clearer
+                  ICP targeting and social proof.
+                </li>
+                <li>
+                  A/B test messaging, CTAs, and templates to lift CTR and signup conversion.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>3. Onboarding &amp; Activation</h3>
+              <ul>
+                <li>
+                  Test first-run experiences and starter templates by cohort (solo dev, startup team,
+                  agency).
+                </li>
+                <li>
+                  Combine in-app and lifecycle email nudges for users who sign up but don’t deploy, or
+                  deploy once and churn.
+                </li>
+              </ul>
+
+              <h3>4. Upgrade &amp; Expansion Nudges</h3>
+              <ul>
+                <li>
+                  Trigger contextual upgrade prompts at meaningful usage or team thresholds with crisp
+                  value messaging.
+                </li>
+                <li>
+                  Experiment with small pricing / packaging tweaks and upsell surfaces while closely
+                  watching conversion and churn.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Fit -->
+        <section id="fit">
+          <div class="section-header">
+            <h2 class="section-title">Why My Background Still Maps to PLG</h2>
+            <div class="section-tag">Fit</div>
+          </div>
+          <div class="section-body cols-2">
+            <div>
+              <p>
+                I haven’t spent 6+ years inside a dev-tools PLG company, but I’ve spent most of my
+                career owning the same mechanics: turning traffic into repeat revenue with
+                product-led, self-serve, and digital-first funnels.
+              </p>
+              <ul>
+                <li>
+                  <strong>Audible:</strong> self-serve subscription funnels, optimizing trial
+                  signups, trial-to-paid conversion, and LTV with strict CAC and payback constraints.
+                </li>
+                <li>
+                  <strong>Hilton &amp; Choice Hotels:</strong> shifting spend and strategy toward
+                  direct digital booking, combining SEO, paid media, and CRO to drive high-intent
+                  traffic and conversion at global scale.
+                </li>
+                <li>
+                  <strong>Multi-location home services:</strong> rebuilding performance and SEO
+                  programs across dozens of local markets with a heavy focus on experimentation and
+                  measurement.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>Across these roles, the common threads are:</p>
+              <ul>
+                <li>
+                  Treating the website as a product and a growth surface, not just a brochure.
+                </li>
+                <li>
+                  Running disciplined experiments across acquisition, UX, and lifecycle, and scaling
+                  only what works.
+                </li>
+                <li>
+                  Grounding decisions in CAC, payback, and long-term value instead of vanity metrics.
+                </li>
+                <li>
+                  Partnering closely with Product, Data, and Sales to make growth a company-wide
+                  engine, not a marketing silo.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Bio & Contact -->
+        <section id="about">
+          <div class="section-header">
+            <h2 class="section-title">Quick Bio &amp; Contact</h2>
+            <div class="section-tag">About</div>
+          </div>
+          <div class="section-body bio-grid">
+            <div>
+              <p>
+                I’m a senior growth and performance marketing leader with 15+ years of experience
+                across subscription, travel, home services, and multi-location businesses. I’ve led
+                large, multi-channel media budgets, built MMM-lite and attribution programs, and
+                scaled experimentation cultures across SEO, paid media, and on-site CRO.
+              </p>
+              <p>
+                Recently, I’ve been focused on AI-enabled growth, Generative Engine Optimization, and
+                product-led motions—helping companies connect classic performance discipline with new
+                discovery surfaces and developer expectations.
+              </p>
+            </div>
+            <div class="contact-box">
+              <div class="contact-label">Contact</div>
+              <div>
+                LinkedIn:
+                <a
+                  class="contact-link"
+                  href="https://www.linkedin.com/in/YOUR-LINKEDIN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/YOUR-LINKEDIN
+                </a>
+              </div>
+              <div>
+                Email:
+                <a class="contact-link" href="mailto:you@example.com">you@example.com</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <span>Draft POV for Vercel – Head of Growth Marketing (Self-Serve)</span>
+      <span>Prepared by Jim Grates</span>
+    </footer>
+  </div>
+</body>
+</html>
